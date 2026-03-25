@@ -64,8 +64,9 @@ for endpoint in endpoints:
 # COMMAND ----------
 
 # Asking a real question
-#model_name = "databricks-llama-4-maverick"
-model_name ="databricks-gemma-3-12b"
+model_name = "databricks-llama-4-maverick"
+#model_name ="databricks-gemma-3-12b"
+
 # Ask a question to a Databricks-hosted Llama model.
 response = client.chat.completions.create(
     model = model_name,
@@ -84,4 +85,24 @@ logger.info(f"Tokens used: {response.usage.total_tokens}")
 logger.info(f"Input tokens: {response.usage.prompt_tokens}")
 logger.info(f"Output tokens: {response.usage.completion_tokens}")
 
+
 # COMMAND ----------
+
+# Cost calculation of our API call based on token usage and pricing tiers.
+
+def calculate_api_cost(input_tokens: int, output_tokens: int,
+                       input_dbu_per_1m: float, output_dbu_per_1m: float) -> float:
+    """Calculate DBU cost for pay-per-token API."""
+    input_cost = (input_tokens / 1_000_000) * input_dbu_per_1m
+    output_cost = (output_tokens / 1_000_000) * output_dbu_per_1m
+    return input_cost + output_cost
+
+# Cost of the API call we just made (databricks-llama-4-maverick)
+pricing_tiers = {"DBU": (7.143, 21.429), "USD": (0.5, 1.5)}
+for currency, (input_rate, output_rate) in pricing_tiers.items():
+    api_cost = calculate_api_cost(
+        response.usage.prompt_tokens,
+        response.usage.completion_tokens,
+        input_rate, output_rate
+    )
+    logger.info(f"Prompt cost: {api_cost:.5f} {currency}")
