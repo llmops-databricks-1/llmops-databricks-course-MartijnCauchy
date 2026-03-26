@@ -106,3 +106,5 @@ for currency, (input_rate, output_rate) in pricing_tiers.items():
         input_rate, output_rate
     )
     logger.info(f"Prompt cost: {api_cost:.5f} {currency}")
+
+# COMMAND ----------

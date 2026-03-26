@@ -18,6 +18,11 @@ artifacts:
     build: uv build
     path: .
 
+sync:
+  exclude:
+    - scripts/
+    - Results/
+
 targets:
   dev:
     mode: development

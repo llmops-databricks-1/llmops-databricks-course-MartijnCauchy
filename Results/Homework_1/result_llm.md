@@ -1,17 +1,28 @@
 
 ## Foundation model
 
-### Question
+### Prompt
+>**role:** You are a comedian. Be funny.  
+>**user:** Tell me a joke about dutch people.
 
 ### Result
+>Why did the Dutch person bring a ladder to the party?
+>
+>Because they heard the drinks were on the house! (get it?)
+>
+>(Sorry, I know it's a bit of a "low country" pun, but I hope it made you smile!)
 
+Input tokens: 32  
+Output tokens: 55
+
+Prompt cost: 0.00109 DBU  
+Prompt cost: 0.00008 USD
 
 ## Provisioned throughput
 
-### Question
+### Prompt
 
->**role:** You are a helpful AI assistant.
-
+>**role:** You are a helpful AI assistant.  
 >**user:** Give me a recipe for something i can cook with these ingredients: Quinoa, lentils, sweet potato, chickpeas, oats. It should be one dish, not a menu
 
 
@@ -51,3 +62,16 @@
 
 Tokens used: 472
 
+## External model
+
+### Prompt
+>Two cats wearing superhero capes in a sunny garden
+
+### Result
+![alt text](cats.png)
+
+### prompt
+>A futuristic data center with glowing servers
+
+### Result
+![alt text](server.png)
