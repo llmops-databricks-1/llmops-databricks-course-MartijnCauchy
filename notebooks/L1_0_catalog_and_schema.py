@@ -11,12 +11,8 @@ from pyspark.sql import SparkSession
 spark = SparkSession.builder.getOrCreate()
 
 # Schema name 
-CATALOG = "llmops_dev_martijn"
+CATALOG = "llmops_martijn"
 SCHEMA = "arxiv"  # Change this to your desired schema name
-
-# Create catalog if it doesn't exist
-spark.sql(f"CREATE CATALOG IF NOT EXISTS {CATALOG}")
-logger.info(f"Catalog {CATALOG} ready")
 
 # Create schema if it doesn't exist
 spark.sql(f"CREATE SCHEMA IF NOT EXISTS {CATALOG}.{SCHEMA}")
