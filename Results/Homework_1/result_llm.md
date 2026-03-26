@@ -68,10 +68,10 @@ Tokens used: 472
 >Two cats wearing superhero capes in a sunny garden
 
 ### Result
-![alt text](cats.png)
+![alt text](./cats.png)
 
 ### prompt
 >A futuristic data center with glowing servers
 
 ### Result
-![alt text](server.png)
+![alt text](./server.png)
