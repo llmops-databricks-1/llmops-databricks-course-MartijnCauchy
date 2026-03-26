@@ -8,6 +8,9 @@ variables:
   git_sha:
     description: "Git SHA of the deployed commit"
     default: "local"
+  budget_policy_id:
+    description: "Serverless usage policy ID"
+    default: "76243905-4928-49b4-97c8-01ebd95b58ad"
 
 artifacts:
   default:
