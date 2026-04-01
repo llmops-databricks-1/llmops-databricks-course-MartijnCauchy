@@ -2,6 +2,9 @@
 LLMOps Course on Databricks
 </h1>
 
+## Results
+- [Homework 1](Results/Homework_1/result_homework_1.md)
+
 ## Practical information
 - Weekly lectures on Wednesdays 16:00-18:00 CET.
 - Weekly Q&A on Mondays 16:00-17:00 CET.
