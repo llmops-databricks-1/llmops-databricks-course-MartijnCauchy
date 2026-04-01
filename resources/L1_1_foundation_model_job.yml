@@ -1,0 +1,24 @@
+resources:
+  jobs:
+    L1_1_foundation_model_job:
+      name: L1-1-foundation-model
+      budget_policy_id: ${var.budget_policy_id}
+      tags:
+        project_name: "llmops-databricks-course-MartijnCauchy"
+
+      environments:
+        - environment_key: default
+          spec:
+            environment_version: "4"
+            dependencies:
+              - ../dist/*.whl
+
+      tasks:
+        - task_key: run_notebook
+          environment_key: default
+          notebook_task:
+            notebook_path: ../notebooks/L1_1_foundation_model.py
+            base_parameters:
+              env: ${bundle.target}
+              git_sha: "${var.git_sha}"
+              run_id: "{{job.run_id}}"
