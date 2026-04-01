@@ -1,8 +1,7 @@
 resources:
   jobs:
-    L1_0_catalog_and_schema_job:
-      name: L1-0-catalog-and-schema
-      budget_policy_id: ${var.budget_policy_id}
+    L1_0_make_schema_job:
+      name: L1-0-make-schema
       tags:
         project_name: "llmops-databricks-course-MartijnCauchy"
 
@@ -17,7 +16,7 @@ resources:
         - task_key: run_notebook
           environment_key: default
           notebook_task:
-            notebook_path: ../notebooks/L1_0_catalog_and_schema.py
+            notebook_path: ../notebooks/L1_0_make_schema.py
             base_parameters:
               env: ${bundle.target}
               git_sha: "${var.git_sha}"

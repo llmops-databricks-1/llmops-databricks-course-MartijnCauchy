@@ -1,4 +1,5 @@
 
+# LLM's
 ## Foundation model
 
 ### Prompt
@@ -75,3 +76,30 @@ Tokens used: 472
 
 ### Result
 ![alt text](./server.png)
+
+# Arxiv Papers
+Result after running the script to fetch the latest papers about System and control:
+
+```
+Most recent papers:
++----------------+-----+
+|primary_category|count|
++----------------+-----+
+|         eess.SY|   38|
+|           cs.RO|    4|
+|         math.OC|    4|
+|         eess.SP|    3|
+|           cs.IT|    1|
++----------------+-----+
+
++------------------------------------------------------------+------------+------------+
+|                                                       title|   published|    arxiv_id|
++------------------------------------------------------------+------------+------------+
+|Model-Free Coordinated Optimization of IBR Controllers fo...|202603311656|2603.29995v1|
+|        Consensus-Based Multi-Objective Controller Synthesis|202603311624|2603.29959v1|
+|An Information-Theoretic Method for Dynamic System Identi...|202603311623|2603.29956v1|
+|Quantale-Enriched Co-Design: Toward a Framework for Quant...|202603311559|2603.29921v1|
+|Passive iFIR filters for data-driven velocity control in ...|202603311534|2603.29882v1|
++------------------------------------------------------------+------------+------------+
+only showing top 5 rows
+```

@@ -1,5 +1,5 @@
 # Databricks notebook source
-# Notebook to create catalog and schema for the course.
+# Notebook to create schema for the course.
 # You can run this notebook multiple times without error, 
 # as it uses "IF NOT EXISTS" in the SQL commands.
 
