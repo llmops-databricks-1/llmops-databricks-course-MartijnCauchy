@@ -45,7 +45,8 @@ client = OpenAI(
 # MAGIC %md
 # MAGIC Test which endpoints your account tier (free) can actually call.
 # MAGIC Sends a minimal request (1 token) to each databricks-* endpoint.
-# MAGIC Not all endpoints support chat — embedding models will fail with a different error.
+# MAGIC Not all endpoints support chat —
+# MAGIC embedding models will fail with a different error.
 
 # COMMAND ----------
 endpoints = w.serving_endpoints.list()
@@ -65,18 +66,18 @@ for endpoint in endpoints:
 
 # Asking a real question
 model_name = "databricks-llama-4-maverick"
-#model_name ="databricks-gemma-3-12b"
+# model_name ="databricks-gemma-3-12b"
 
 # Ask a question to a Databricks-hosted Llama model.
 response = client.chat.completions.create(
-    model = model_name,
+    model=model_name,
     messages=[
         {"role": "system", "content": "You are a comedian. Be funny."},
         {"role": "user", "content": "Tell me a joke about dutch people."},
     ],
     max_tokens=200,
-         # Temperature ontrols randomness: 0.0 = deterministic, 1.0 = more creative/random
-    temperature=0.7
+    # Temperature ontrols randomness: 0.0 = deterministic, 1.0 = more creative/random
+    temperature=0.7,
 )
 
 logger.info("Response:")
@@ -90,12 +91,18 @@ logger.info(f"Output tokens: {response.usage.completion_tokens}")
 
 # Cost calculation of our API call based on token usage and pricing tiers.
 
-def calculate_api_cost(input_tokens: int, output_tokens: int,
-                       input_dbu_per_1m: float, output_dbu_per_1m: float) -> float:
+
+def calculate_api_cost(
+    input_tokens: int,
+    output_tokens: int,
+    input_dbu_per_1m: float,
+    output_dbu_per_1m: float,
+) -> float:
     """Calculate DBU cost for pay-per-token API."""
     input_cost = (input_tokens / 1_000_000) * input_dbu_per_1m
     output_cost = (output_tokens / 1_000_000) * output_dbu_per_1m
     return input_cost + output_cost
+
 
 # Cost of the API call we just made (databricks-llama-4-maverick)
 pricing_tiers = {"DBU": (7.143, 21.429), "USD": (0.5, 1.5)}
@@ -103,7 +110,8 @@ for currency, (input_rate, output_rate) in pricing_tiers.items():
     api_cost = calculate_api_cost(
         response.usage.prompt_tokens,
         response.usage.completion_tokens,
-        input_rate, output_rate
+        input_rate,
+        output_rate,
     )
     logger.info(f"Prompt cost: {api_cost:.5f} {currency}")
 

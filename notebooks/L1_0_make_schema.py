@@ -1,6 +1,6 @@
 # Databricks notebook source
 # Notebook to create schema for the course.
-# You can run this notebook multiple times without error, 
+# You can run this notebook multiple times without error,
 # as it uses "IF NOT EXISTS" in the SQL commands.
 
 from loguru import logger
@@ -10,7 +10,7 @@ from pyspark.sql import SparkSession
 # Create Spark session
 spark = SparkSession.builder.getOrCreate()
 
-# Schema name 
+# Schema name
 CATALOG = "llmops_martijn"
 SCHEMA = "arxiv"  # Change this to your desired schema name
 

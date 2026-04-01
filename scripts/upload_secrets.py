@@ -23,6 +23,6 @@ try:
 except ResourceAlreadyExists:
     print(f"Secret scope '{SCOPE}' already exists")
 
-openai_key = os.environ["openai_key"]
+openai_key = os.environ["OPENAI_KEY"]
 w.secrets.put_secret(scope=SCOPE, key="openai_key", string_value=openai_key)
 print("Uploaded openai_key (created or updated)")
