@@ -1,0 +1,20 @@
+{
+  "environment": {
+    "MLFLOW_CLAUDE_TRACING_ENABLED": "true",
+    "MLFLOW_TRACKING_URI": "databricks://DEFAULT",
+    "MLFLOW_EXPERIMENT_NAME": "/Workspace/Shared/llmops-databricks-course-MartijnCauchy",
+    "DATABRICKS_CONFIG_PROFILE": "DEFAULT"
+  },
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "uv run python -c \"from mlflow.claude_code.hooks import stop_hook_handler; stop_hook_handler()\""
+          }
+        ]
+      }
+    ]
+  }
+}

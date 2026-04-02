@@ -95,3 +95,8 @@ dmypy.json
 # VS code configuration
 .vscode
 .history
+
+# Claude Code Tracing
+.claude/settings.local.json
+.claude/mlflow/
+mlruns/
