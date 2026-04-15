@@ -1,4 +1,4 @@
-[project]
+    [project]
 name = "llmops-databricks-course-MartijnCauchy"
 dynamic = ["version"]
 description = "llmops-databricks-course-MartijnCauchy - LLMOps Course on Databricks"

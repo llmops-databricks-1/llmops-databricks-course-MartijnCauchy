@@ -1,9 +1,9 @@
 {
   "environment": {
     "MLFLOW_CLAUDE_TRACING_ENABLED": "true",
-    "MLFLOW_TRACKING_URI": "databricks://DEFAULT",
+    "MLFLOW_TRACKING_URI": "databricks://adb-582244602844614",
     "MLFLOW_EXPERIMENT_NAME": "/Workspace/Shared/llmops-databricks-course-MartijnCauchy",
-    "DATABRICKS_CONFIG_PROFILE": "DEFAULT"
+    "DATABRICKS_CONFIG_PROFILE": "adb-582244602844614"
   },
   "hooks": {
     "Stop": [
