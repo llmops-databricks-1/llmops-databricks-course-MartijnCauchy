@@ -1,0 +1,24 @@
+resources:
+  jobs:
+    L1_4_arxiv_data_ingestion_job:
+      name: L1-4-arxiv-data-ingestion
+      budget_policy_id: ${var.budget_policy_id}
+      tags:
+        project_name: "llmops-databricks-course-MartijnCauchy"
+
+      environments:
+        - environment_key: default
+          spec:
+            environment_version: "4"
+            dependencies:
+              - ../dist/*.whl
+
+      tasks:
+        - task_key: run_notebook
+          environment_key: default
+          notebook_task:
+            notebook_path: ../notebooks/L1_4_arxiv_data_ingestion.py
+            base_parameters:
+              env: ${bundle.target}
+              git_sha: "${var.git_sha}"
+              run_id: "{{job.run_id}}"

@@ -8,6 +8,9 @@ variables:
   git_sha:
     description: "Git SHA of the deployed commit"
     default: "local"
+  budget_policy_id:
+    description: "Serverless usage policy ID"
+    default: "501f8711-f61e-4f1f-bffd-6d474dd2a3f0"
 
 artifacts:
   default:
@@ -15,10 +18,18 @@ artifacts:
     build: uv build
     path: .
 
+sync:
+  exclude:
+    - scripts/
+    - Results/
+    - guides/
+    - my_tests/
+
 targets:
   dev:
     mode: development
     default: true
     workspace:
-      host: https://<your-databricks-workspace>
+      host: https://adb-582244602844614.14.azuredatabricks.net
+      profile: adb-582244602844614
       root_path: /Workspace/Users/${workspace.current_user.userName}/.bundle/${bundle.name}/${bundle.target}

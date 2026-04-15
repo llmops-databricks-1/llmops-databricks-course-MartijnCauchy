@@ -1,0 +1,23 @@
+resources:
+  jobs:
+    L1_0_make_schema_job:
+      name: L1-0-make-schema
+      tags:
+        project_name: "llmops-databricks-course-MartijnCauchy"
+
+      environments:
+        - environment_key: default
+          spec:
+            environment_version: "4"
+            dependencies:
+              - ../dist/*.whl
+
+      tasks:
+        - task_key: run_notebook
+          environment_key: default
+          notebook_task:
+            notebook_path: ../notebooks/L1_0_make_schema.py
+            base_parameters:
+              env: ${bundle.target}
+              git_sha: "${var.git_sha}"
+              run_id: "{{job.run_id}}"
